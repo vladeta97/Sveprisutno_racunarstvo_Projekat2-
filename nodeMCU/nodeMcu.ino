@@ -19,11 +19,7 @@ const char* mqtt_server = "*********";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// DHT Sensor - GPIO 5 = D1 on ESP-12E NodeMCU board
 const int DHTPin = 5;
-
-// Lamp - LED - GPIO 4 = D2 on ESP-12E NodeMCU board
-//const int lamp = 4;
 
 // Relay1
 const int relay1=13;
@@ -33,6 +29,7 @@ const int relay2=12;
 
 //Mux select
 const int muxA= 2;
+
 
 const int AirValue = 790;
 const int WaterValue = 390; 
@@ -108,7 +105,6 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");  
    
-      client.subscribe("room/lamp");
       client.subscribe("room/relay1");
        client.subscribe("room/relay2");
     } else {
